@@ -1,2 +1,2 @@
 # MojeProg
-Czego tu szukasz
+Michał K 2C
