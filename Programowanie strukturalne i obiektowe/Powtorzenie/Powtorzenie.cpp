@@ -29,30 +29,35 @@ void PK()
 
 void wyborfun()
 {
+    
     int wybor;
-    cout << "\n";
-    cin >> wybor;
-    if (wybor == 1)
-    {
+    
+    
         cout << "\n";
-        cout << "POLE PROSTOKATA\n";
-        PK();
-    }
-    if (wybor == 2)
-    {
-        cout << "\n";
-        cout << "POLE TROJKATA\n";
-        PT();
-    }
-    if (wybor == 3)
-    {
-
-    }
-    if (wybor > 3)
-    {
-        cout << "Wprowadz wybor: "; 
-        wyborfun();
-    }
+        cin >> wybor;
+        if (wybor == 1)
+        {
+            cout << "\n";
+            cout << "POLE PROSTOKATA\n";
+            PK();
+        }
+        if (wybor == 2)
+        {
+            cout << "\n";
+            cout << "POLE TROJKATA\n";
+            PT();
+        }
+        if (wybor == 3)
+        {
+            system("cls");
+            return;
+        }
+        if (wybor > 3)
+        {
+            
+        }
+    
+    system("pause");
 }
 
 void mainProgram()
@@ -61,7 +66,7 @@ void mainProgram()
     cout << "Wybierz se od 1-3\n";
     cout << "1.Pole prostokata \n";
     cout << "2.Pole Trojkata \n";
-    cout << "3. \n";
+    cout << "3. Zakoncz program \n";
     cout << "Wprowadz wybor: ";
     wyborfun();
 }
