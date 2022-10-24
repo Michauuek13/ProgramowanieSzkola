@@ -35,12 +35,12 @@ public:
         this->date = date;
         this->weight = weight;
     }
-    Person1(std::string name, std::string surename)
+    Person(std::string name, std::string surename)
     {
         this->name = name;
         this->surename = surename;
         this->height = 170;
-        this->date = time_t givemetime = time(NULL);
+        this->date = 2022;
         this->weight = 60;
     }
     
@@ -65,24 +65,28 @@ int main()
     data = 1900 + ltm->tm_year;
     
    
-    Person Osoba1("Jackie", "Wellles", 180, data - 1990, 90 );
+    Person osoba1("Jackie", "Wellles", 180, data - 1990, 90 );
 
-    Person Osoba2("Judy", "Alvarez", 160, data - 2006, 55);
+    Person osoba2("Judy", "Alvarez", 160, data - 2006, 55);
 
-    Person1 Osoba1("Victor", "Vector");
+    Person osoba3("Victor", "Vector");
 
-    Osoba1.Info();
+    osoba1.Info();
     cout << "\n";
-    Osoba1.Pelnoletniosc();
+    osoba1.Pelnoletniosc();
     cout << "\n";
     
 
-    Osoba2.Info();
+    osoba2.Info();
     cout << "\n";
-    Osoba2.Pelnoletniosc();
+    osoba2.Pelnoletniosc();
 
     cout << "\n";
-    Osoba1.Info();
+    osoba3.Info();
+    osoba3.Pelnoletniosc();
+    cout << "\n";
+
+    
     delete ltm;
 }
 
