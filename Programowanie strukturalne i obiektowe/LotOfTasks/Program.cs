@@ -188,6 +188,9 @@ namespace LotOfTasks
                     case 2:
                         trudniejsze.Nww();
                         break;
+                    case 3:
+                        trudniejsze.PESEL();
+                        break;
                 }
             }
         }
