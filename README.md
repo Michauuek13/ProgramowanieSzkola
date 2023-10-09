@@ -1,2 +1,2 @@
-# MojeProg
-Michał K 2C
+# Programowanie
+Michał K 3C
