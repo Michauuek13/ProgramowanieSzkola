@@ -1,8 +1,9 @@
 ﻿  TabliceZadaniaCpp.cpp
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(108,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(144,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(181,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(201,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(217,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\MK3C\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(401,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  TabliceZadaniaCpp.vcxproj -> C:\MK3C\TabliceZadaniaCpp\x64\Debug\TabliceZadaniaCpp.exe
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(108,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(144,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(181,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(201,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(217,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(401,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\TabliceZadaniaCpp\TabliceZadaniaCpp.cpp(480,6): warning C4101: 'liczbyR': unreferenced local variable
+  TabliceZadaniaCpp.vcxproj -> C:\MK3C\git\Programowanie strukturalne i obiektowe\TabliceZadaniaCpp\x64\Debug\TabliceZadaniaCpp.exe

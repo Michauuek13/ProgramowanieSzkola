@@ -482,12 +482,64 @@ void Odwrotnosc()
 	for (int i = rozmiar - 1; i >= 0; i--)
 	{
 		std::cout << liczby[i] << ", ";
+		
 	}
 }
   
+void Czestotliwosc()
+{
+	const int rozmiar = 5;
+	int liczby[rozmiar];
+	liczby[0] = 1;
+	liczby[1] = 1;
+	liczby[2] = 2;
+	liczby[3] = 2;
+	liczby[4] = 2;
 
+	int count = 0;
+	for (int i = 0; i < rozmiar; i++)
+	{	
+		for (int j = 0; j < rozmiar; j++)
+		{
+			if (liczby[j++] == liczby[i])
+			{
+				count = count + 1;
+				cout << "Liczba " << liczby[j] << " wystepuje " << count << " razy\n";
+			}
+		}
+		
+	}
+}
+
+void Podciag()
+{
+	const int rozmiar = 5;
+	int liczby[rozmiar];
+	liczby[0] = 1;
+	liczby[1] = 2;
+	liczby[2] = 1;
+	liczby[3] = 2;
+	liczby[4] = 4;
+
+	int podciag = 0;
+	for (int i = 0; i < rozmiar; i++)
+	{
+		if (liczby[i] == (liczby[i+1] - 1))
+		{
+			if (podciag == (liczby[i] + 1))
+			{
+				podciag = liczby[i];
+			}
+			else
+			{
+				podciag = 0;
+			}
+		}
+	}
+	cout << "Najwyszy podciag jest do: " << podciag << "\n";
+}
 
 int main()
 {
-	Odwrotnosc();
+	Podciag();
 }
