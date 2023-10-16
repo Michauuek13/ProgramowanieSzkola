@@ -1,3 +1,6 @@
+
+
+
 #include <iostream>
 #include <math.h>
 using namespace std;
@@ -519,27 +522,100 @@ void Podciag()
 	liczby[1] = 2;
 	liczby[2] = 1;
 	liczby[3] = 2;
-	liczby[4] = 4;
+	liczby[4] = 3;
 
 	int podciag = 0;
+	int maxpodciag = 0;
 	for (int i = 0; i < rozmiar; i++)
 	{
-		if (liczby[i] == (liczby[i+1] - 1))
-		{
-			if (podciag == (liczby[i] + 1))
+		if (liczby[i] > (liczby[i-1]))
+		{		
+			podciag++;
+			if (podciag > maxpodciag)
 			{
-				podciag = liczby[i];
+				maxpodciag = podciag;
 			}
-			else
-			{
-				podciag = 0;
-			}
+			
 		}
+		else
+			{
+				podciag = 1;
+			}
 	}
 	cout << "Najwyszy podciag jest do: " << podciag << "\n";
 }
 
+void ParzysteNieparzyste()
+{
+	const int rozmiar = 5;
+	int liczby[rozmiar];
+	liczby[0] = 1;
+	liczby[1] = 2;
+	liczby[2] = 3;
+	liczby[3] = 6;
+	liczby[4] = 7;
+
+	int liczbyP[rozmiar];
+	int liczbyN[rozmiar];
+	int j = 0;
+	int k = 0;
+	for (int i = 0; i < rozmiar; i++)
+	{
+		if (liczby[i] % 2 == 0)
+		{
+			liczbyP[j] = liczby[i];
+			j++;
+		}
+		else
+		{
+			liczbyN[k] = liczby[i];
+			k++;
+		}
+	}
+	cout << "Liczby parzyste: ";
+	for (int i = 0; i < j; i++)
+	{
+		cout << liczbyP[i] << ", ";
+	}
+	cout << "\n";
+	cout << "Liczby nieparzyste: ";
+	for (int i = 0; i <  k; i++)
+	{
+		cout << liczbyN[i] << ", ";
+	}
+}
+
 int main()
 {
-	Podciag();
+	cout << "1.Srednia\n";
+	cout << "2.Wieksza niz srednia\n";
+	cout << "3.Dowrotna Kolejnosc\n";
+	cout << "4.Czestotliwosc\n";
+	cout << "5.Podciag\n";
+	cout << "6.ParzysteNieparzyste\n";
+	int wybor;
+	cin >> wybor;
+	system("CLS");
+	switch (wybor)
+	{
+	case(1):
+		Srednia();
+		break;
+	case(2):
+		WiekszeNizSrednia();
+		break;
+	case(3):
+		Odwrotnosc();
+		break;
+	case(4):
+		Czestotliwosc();
+		break;
+	case(5):
+		Podciag();
+		break;
+	case(6):
+		ParzysteNieparzyste();
+		break;
+	}
+	
 }
