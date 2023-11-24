@@ -45,5 +45,9 @@ namespace Fraction_ConsolApp
             return "\n" + numerator + "\n-\n" + denominator; 
         }
 
+        internal void Mul(Fraction firstFraction, Fraction secondFraction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
