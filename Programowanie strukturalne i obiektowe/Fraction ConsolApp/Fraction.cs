@@ -32,6 +32,7 @@ namespace Fraction_ConsolApp
         {
             Numerator = 0;
             Denominator = 1;
+
         }
 
         public Fraction(int n, int d)

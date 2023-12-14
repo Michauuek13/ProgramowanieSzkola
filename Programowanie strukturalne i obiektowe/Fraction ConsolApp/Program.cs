@@ -21,3 +21,5 @@ fourthFraction.Numerator = firstFraction.Numerator * secondFraction.Denominator;
 fourthFraction.Denominator = firstFraction.Denominator * secondFraction.Numerator;
 Console.WriteLine("Wartosc dzielenia ułamka: " + fourthFraction);
 
+
+
