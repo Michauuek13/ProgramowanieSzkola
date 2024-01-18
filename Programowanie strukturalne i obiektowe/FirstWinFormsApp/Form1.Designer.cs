@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox = new TextBox();
             button1 = new Button();
@@ -44,6 +45,10 @@
             Reset = new Button();
             comboBoxZycie = new ComboBox();
             label3 = new Label();
+            Czas = new Label();
+            Time = new Label();
+            StartTime = new Label();
+            RefreshTime = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // textBox
@@ -211,12 +216,52 @@
             label3.Text = "Co w życiu liczy się najbardziej?";
             label3.Click += label3_Click;
             // 
+            // Czas
+            // 
+            Czas.AutoSize = true;
+            Czas.BackColor = SystemColors.ControlDarkDark;
+            Czas.Location = new Point(11, 467);
+            Czas.Name = "Czas";
+            Czas.Size = new Size(34, 15);
+            Czas.TabIndex = 16;
+            Czas.Text = "Czas:";
+            // 
+            // Time
+            // 
+            Time.AutoSize = true;
+            Time.BackColor = SystemColors.ControlDarkDark;
+            Time.Location = new Point(11, 482);
+            Time.Name = "Time";
+            Time.Size = new Size(38, 15);
+            Time.TabIndex = 17;
+            Time.Text = "label4";
+            // 
+            // StartTime
+            // 
+            StartTime.AutoSize = true;
+            StartTime.BackColor = SystemColors.ControlDarkDark;
+            StartTime.BorderStyle = BorderStyle.Fixed3D;
+            StartTime.Location = new Point(11, 382);
+            StartTime.Name = "StartTime";
+            StartTime.Size = new Size(66, 17);
+            StartTime.TabIndex = 18;
+            StartTime.Text = "Reset Time";
+            StartTime.Click += StartTime_Click;
+            // 
+            // RefreshTime
+            // 
+            RefreshTime.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(910, 540);
+            Controls.Add(StartTime);
+            Controls.Add(Time);
+            Controls.Add(Czas);
             Controls.Add(label3);
             Controls.Add(comboBoxZycie);
             Controls.Add(Reset);
@@ -236,6 +281,8 @@
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "Form1";
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sigma Tester";
             ResumeLayout(false);
             PerformLayout();
@@ -258,5 +305,9 @@
         private Button Reset;
         private ComboBox comboBoxZycie;
         private Label label3;
+        private Label Czas;
+        private Label Time;
+        private Label StartTime;
+        private System.Windows.Forms.Timer RefreshTime;
     }
 }

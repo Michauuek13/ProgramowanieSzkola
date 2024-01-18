@@ -5,7 +5,10 @@ namespace FirstWinFormsApp
         public Form1()
         {
             InitializeComponent();
+            RefreshTime.Enabled = true;
+            StartTime.Hide();
         }
+        public static double TimeNum = 0;
 
         private void button_Click(object sender, EventArgs e)
         {
@@ -24,12 +27,12 @@ namespace FirstWinFormsApp
 
             if (boxLp.Checked)
             {
-                sigma--;
+                sigma = -1000;
             }
 
             if (radioTak.Checked)
             {
-                sigma--;
+                sigma = -2;
             }
 
             if (radioNie.Checked)
@@ -64,10 +67,14 @@ namespace FirstWinFormsApp
             }
 
             if (name != "")
-                MessageBox.Show($"Witaj {name}! Jesteœ Sigma w {sigmaPercent}%", "Komunikat",
+            {
+                MessageBox.Show($"Witaj {name}! Jesteœ Sigma w {sigmaPercent}%\n" +
+                    $"Twój czas to {Math.Round(TimeNum).ToString()} s.", "Komunikat",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button2);
+                TimeNum = 0;
+            }
             else
             {
                 MessageBox.Show("B³¹d, podaj imie!", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -89,6 +96,8 @@ namespace FirstWinFormsApp
             boxW.Checked = false;
             boxLp.Checked = false;
             textBox.Text = "";
+            TimeNum = 0;
+            comboBoxZycie.SelectedItem = null;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -99,6 +108,19 @@ namespace FirstWinFormsApp
         private void comboBoxZycie_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            TimeNum += 0.1;
+            Time.Text = Math.Round(TimeNum).ToString() + "s.";
+
+        }
+
+        private void StartTime_Click(object sender, EventArgs e)
+        {
+            TimeNum = 0;
         }
     }
 }
