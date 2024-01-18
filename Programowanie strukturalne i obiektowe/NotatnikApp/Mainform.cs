@@ -17,40 +17,81 @@ namespace NotatnikApp
             DialogResult result = MessageBox.Show("Czy napewno chcesz utworzyæ nowy plik?", "Utwórz nowy plik", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                richTextBox1.Clear();
+                PoleNotatnik.Clear();
             }
 
         }
 
-        private void zamknijJakoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+
 
         private void zapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            showSaveWindow();
+        }
+
+        void showSaveWindow()
+        {
             SaveAs Sa = new SaveAs();
             Sa.Show();
-
-
         }
+        
+
+        void saveFile(string fileName)
+        {
+            string fileContent = PoleNotatnik.Text;
+            //testWindow(fileContent);
+            string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            fileName = Path.ChangeExtension(fileName, "txt");
+            string filePath = Path.Combine(DesktopPath, fileName);
+            File.WriteAllText(filePath, fileContent);
+        }
+
+        void checkIfFileExist(string filePath, string fileName)
+        {
+            if (File.Exists(filePath))
+            {
+                DialogResult result = MessageBox.Show("Czy napewno chcesz nadpisaæ plik?", "Utwórz nowy plik", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    File.Delete(filePath);
+                    saveFile(fileName);
+                    
+                }
+            }
+            else
+            {
+                saveFile(fileName);
+            }
+        }
+
         public void changeFileName(string newFileName)
         {
             string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string fileName = newFileName;
-            fileName = Path.ChangeExtension(fileName, "txt");
+
             string filePath = Path.Combine(DesktopPath, fileName);
-            string fileContent = richTextBox1.Text;
-            if (File.Exists(filePath))
-            {
+            //checkIfFileExist(filePath, fileName);
+            checkIfFileExist(filePath, fileName);
+        }
 
-            }
-            else
-            {
+        void testWindow(string info)
+        {
+            MessageBox.Show(info.ToString(), "Utwórz nowy plik", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
-            }
-            
-            File.WriteAllText(filePath, fileContent);
+        private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void openFile()
+        {
+
+        }
+
+        private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

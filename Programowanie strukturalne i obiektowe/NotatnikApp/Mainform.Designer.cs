@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            richTextBox1 = new RichTextBox();
+            PoleNotatnik = new RichTextBox();
             mainMenu = new MenuStrip();
             plikToolStripMenuItem = new ToolStripMenuItem();
             nowyToolStripMenuItem = new ToolStripMenuItem();
@@ -41,20 +41,21 @@
             formatToolStripMenuItem = new ToolStripMenuItem();
             widokToolStripMenuItem = new ToolStripMenuItem();
             pomocToolStripMenuItem = new ToolStripMenuItem();
+            textBox1 = new TextBox();
             mainMenu.SuspendLayout();
             SuspendLayout();
             // 
-            // richTextBox1
+            // PoleNotatnik
             // 
-            richTextBox1.BorderStyle = BorderStyle.None;
-            richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.Location = new Point(0, 24);
-            richTextBox1.Margin = new Padding(3, 50, 3, 3);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(1038, 616);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
-            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            PoleNotatnik.BorderStyle = BorderStyle.None;
+            PoleNotatnik.Dock = DockStyle.Fill;
+            PoleNotatnik.Location = new Point(0, 24);
+            PoleNotatnik.Margin = new Padding(3, 50, 3, 3);
+            PoleNotatnik.Name = "PoleNotatnik";
+            PoleNotatnik.Size = new Size(1038, 616);
+            PoleNotatnik.TabIndex = 0;
+            PoleNotatnik.Text = "";
+            PoleNotatnik.TextChanged += richTextBox1_TextChanged;
             // 
             // mainMenu
             // 
@@ -86,6 +87,7 @@
             otwórzToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
             otwórzToolStripMenuItem.Size = new Size(213, 22);
             otwórzToolStripMenuItem.Text = "&Otwórz";
+            otwórzToolStripMenuItem.Click += otwórzToolStripMenuItem_Click;
             // 
             // zapiszToolStripMenuItem
             // 
@@ -112,6 +114,7 @@
             zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
             zamknijToolStripMenuItem.Size = new Size(213, 22);
             zamknijToolStripMenuItem.Text = "&Zamknij";
+            zamknijToolStripMenuItem.Click += zamknijToolStripMenuItem_Click;
             // 
             // edycjaToolStripMenuItem
             // 
@@ -137,12 +140,20 @@
             pomocToolStripMenuItem.Size = new Size(57, 20);
             pomocToolStripMenuItem.Text = "Pomoc";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(319, 204);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 2;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1038, 640);
-            Controls.Add(richTextBox1);
+            Controls.Add(textBox1);
+            Controls.Add(PoleNotatnik);
             Controls.Add(mainMenu);
             MainMenuStrip = mainMenu;
             Name = "MainForm";
@@ -156,7 +167,7 @@
 
         #endregion
 
-        private RichTextBox richTextBox1;
+        private RichTextBox PoleNotatnik;
         private MenuStrip mainMenu;
         private ToolStripMenuItem plikToolStripMenuItem;
         private ToolStripMenuItem nowyToolStripMenuItem;
@@ -169,5 +180,6 @@
         private ToolStripMenuItem widokToolStripMenuItem;
         private ToolStripMenuItem pomocToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
+        private TextBox textBox1;
     }
 }

@@ -23,6 +23,7 @@ namespace NotatnikApp
             MainForm form = new MainForm();
             string fileName = textBox1.Text;
             form.changeFileName(fileName);
+            //this.Close();
             
             
         }
