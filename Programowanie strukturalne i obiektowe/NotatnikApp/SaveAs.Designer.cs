@@ -31,11 +31,13 @@
             saButton = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
+            savePathTextBox = new TextBox();
+            browsefilesButton = new Button();
             SuspendLayout();
             // 
             // saButton
             // 
-            saButton.Location = new Point(142, 93);
+            saButton.Location = new Point(153, 149);
             saButton.Name = "saButton";
             saButton.Size = new Size(75, 23);
             saButton.TabIndex = 0;
@@ -45,19 +47,38 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(129, 64);
+            textBox1.Location = new Point(142, 64);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 1;
+            textBox1.Text = "nazwa";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(124, 46);
+            label1.Location = new Point(137, 46);
             label1.Name = "label1";
             label1.Size = new Size(105, 15);
             label1.TabIndex = 2;
             label1.Text = "Podaj nazwe pliku:";
+            // 
+            // savePathTextBox
+            // 
+            savePathTextBox.Location = new Point(103, 93);
+            savePathTextBox.Name = "savePathTextBox";
+            savePathTextBox.Size = new Size(175, 23);
+            savePathTextBox.TabIndex = 3;
+            savePathTextBox.Text = "ścieżka zapisu";
+            // 
+            // browsefilesButton
+            // 
+            browsefilesButton.Location = new Point(153, 120);
+            browsefilesButton.Name = "browsefilesButton";
+            browsefilesButton.Size = new Size(75, 23);
+            browsefilesButton.TabIndex = 4;
+            browsefilesButton.Text = "Przeglądaj pliki...";
+            browsefilesButton.UseVisualStyleBackColor = true;
+            browsefilesButton.Click += browsefilesButton_Click;
             // 
             // SaveAs
             // 
@@ -65,7 +86,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(388, 158);
+            ClientSize = new Size(405, 198);
+            Controls.Add(browsefilesButton);
+            Controls.Add(savePathTextBox);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(saButton);
@@ -84,5 +107,7 @@
         private Button saButton;
         private TextBox textBox1;
         private Label label1;
+        private TextBox savePathTextBox;
+        private Button browsefilesButton;
     }
 }
