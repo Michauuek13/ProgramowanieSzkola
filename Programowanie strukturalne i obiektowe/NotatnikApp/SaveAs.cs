@@ -13,6 +13,7 @@ namespace NotatnikApp
 {
     public partial class SaveAs : Form
     {
+        public string fileName { get { return textBox1.Text; } }
         public SaveAs()
         {
             InitializeComponent();
@@ -20,12 +21,11 @@ namespace NotatnikApp
 
         private void saButton_Click(object sender, EventArgs e)
         {
-            MainForm form = new MainForm();
-            string fileName = textBox1.Text;
-            form.changeFileName(fileName);
+            DialogResult = DialogResult.OK;
+            //MainForm form = new MainForm();
+            //string fileName = textBox1.Text;
+            //form.changeFileName(fileName);
             //this.Close();
-            
-            
         }
     }
 }

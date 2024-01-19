@@ -32,9 +32,12 @@ namespace NotatnikApp
         void showSaveWindow()
         {
             SaveAs Sa = new SaveAs();
-            Sa.Show();
+            if (Sa.ShowDialog() == DialogResult.OK)
+            {
+                changeFileName(Sa.fileName);
+            }
         }
-        
+
 
         void saveFile(string fileName)
         {
@@ -55,7 +58,7 @@ namespace NotatnikApp
                 {
                     File.Delete(filePath);
                     saveFile(fileName);
-                    
+
                 }
             }
             else
@@ -64,12 +67,13 @@ namespace NotatnikApp
             }
         }
 
-        public void changeFileName(string newFileName)
+        public void changeFileName(string fileName)
         {
             string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string fileName = newFileName;
-
+            //string fileName = newFileName;
+            fileName = Path.ChangeExtension(fileName, "txt");
             string filePath = Path.Combine(DesktopPath, fileName);
+
             //checkIfFileExist(filePath, fileName);
             checkIfFileExist(filePath, fileName);
         }
@@ -81,7 +85,7 @@ namespace NotatnikApp
 
         private void otwórzToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            openFile();
         }
 
         void openFile()

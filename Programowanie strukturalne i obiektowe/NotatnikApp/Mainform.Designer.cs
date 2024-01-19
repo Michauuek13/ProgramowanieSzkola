@@ -41,7 +41,6 @@
             formatToolStripMenuItem = new ToolStripMenuItem();
             widokToolStripMenuItem = new ToolStripMenuItem();
             pomocToolStripMenuItem = new ToolStripMenuItem();
-            textBox1 = new TextBox();
             mainMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -140,19 +139,11 @@
             pomocToolStripMenuItem.Size = new Size(57, 20);
             pomocToolStripMenuItem.Text = "Pomoc";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(319, 204);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1038, 640);
-            Controls.Add(textBox1);
             Controls.Add(PoleNotatnik);
             Controls.Add(mainMenu);
             MainMenuStrip = mainMenu;
@@ -180,6 +171,5 @@
         private ToolStripMenuItem widokToolStripMenuItem;
         private ToolStripMenuItem pomocToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private TextBox textBox1;
     }
 }
