@@ -97,7 +97,7 @@
             Name = "SaveAs";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "SaveAs";
+            Text = "Zapisz jako";
             ResumeLayout(false);
             PerformLayout();
         }

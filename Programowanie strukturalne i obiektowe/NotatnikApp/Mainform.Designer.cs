@@ -45,6 +45,13 @@
             zaznaczWszystkoToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
             formatToolStripMenuItem = new ToolStripMenuItem();
+            kolorCzcionkiToolStripMenuItem = new ToolStripMenuItem();
+            czarnyToolStripMenuItem = new ToolStripMenuItem();
+            czerwonyToolStripMenuItem = new ToolStripMenuItem();
+            zielonyToolStripMenuItem = new ToolStripMenuItem();
+            niebieskiToolStripMenuItem = new ToolStripMenuItem();
+            innyToolStripMenuItem = new ToolStripMenuItem();
+            rozmiarCzcionkiToolStripMenuItem = new ToolStripMenuItem();
             widokToolStripMenuItem = new ToolStripMenuItem();
             powiększToolStripMenuItem = new ToolStripMenuItem();
             powiększToolStripMenuItem2 = new ToolStripMenuItem();
@@ -57,6 +64,9 @@
             statusStrip1 = new StatusStrip();
             FontStrip = new ToolStripStatusLabel();
             IloscZnakow = new ToolStripStatusLabel();
+            ZoomStrip = new ToolStripStatusLabel();
+            colorDialog1 = new ColorDialog();
+            fontDialog1 = new FontDialog();
             mainMenu.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -65,6 +75,7 @@
             // 
             PoleNotatnik.BorderStyle = BorderStyle.None;
             PoleNotatnik.Dock = DockStyle.Fill;
+            PoleNotatnik.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             PoleNotatnik.Location = new Point(0, 24);
             PoleNotatnik.Margin = new Padding(3, 50, 3, 3);
             PoleNotatnik.Name = "PoleNotatnik";
@@ -160,6 +171,7 @@
             cofnijToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
             cofnijToolStripMenuItem.Size = new Size(208, 22);
             cofnijToolStripMenuItem.Text = "Cofnij";
+            cofnijToolStripMenuItem.Click += cofnijToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -183,9 +195,59 @@
             // 
             // formatToolStripMenuItem
             // 
+            formatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { kolorCzcionkiToolStripMenuItem, rozmiarCzcionkiToolStripMenuItem });
             formatToolStripMenuItem.Name = "formatToolStripMenuItem";
             formatToolStripMenuItem.Size = new Size(57, 20);
             formatToolStripMenuItem.Text = "Format";
+            // 
+            // kolorCzcionkiToolStripMenuItem
+            // 
+            kolorCzcionkiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { czarnyToolStripMenuItem, czerwonyToolStripMenuItem, zielonyToolStripMenuItem, niebieskiToolStripMenuItem, innyToolStripMenuItem });
+            kolorCzcionkiToolStripMenuItem.Name = "kolorCzcionkiToolStripMenuItem";
+            kolorCzcionkiToolStripMenuItem.Size = new Size(163, 22);
+            kolorCzcionkiToolStripMenuItem.Text = "Kolor czcionki";
+            // 
+            // czarnyToolStripMenuItem
+            // 
+            czarnyToolStripMenuItem.Name = "czarnyToolStripMenuItem";
+            czarnyToolStripMenuItem.Size = new Size(126, 22);
+            czarnyToolStripMenuItem.Text = "Czarny";
+            czarnyToolStripMenuItem.Click += czarnyToolStripMenuItem_Click;
+            // 
+            // czerwonyToolStripMenuItem
+            // 
+            czerwonyToolStripMenuItem.Name = "czerwonyToolStripMenuItem";
+            czerwonyToolStripMenuItem.Size = new Size(126, 22);
+            czerwonyToolStripMenuItem.Text = "Czerwony";
+            czerwonyToolStripMenuItem.Click += czerwonyToolStripMenuItem_Click;
+            // 
+            // zielonyToolStripMenuItem
+            // 
+            zielonyToolStripMenuItem.Name = "zielonyToolStripMenuItem";
+            zielonyToolStripMenuItem.Size = new Size(126, 22);
+            zielonyToolStripMenuItem.Text = "Zielony";
+            zielonyToolStripMenuItem.Click += zielonyToolStripMenuItem_Click;
+            // 
+            // niebieskiToolStripMenuItem
+            // 
+            niebieskiToolStripMenuItem.Name = "niebieskiToolStripMenuItem";
+            niebieskiToolStripMenuItem.Size = new Size(126, 22);
+            niebieskiToolStripMenuItem.Text = "Niebieski";
+            niebieskiToolStripMenuItem.Click += niebieskiToolStripMenuItem_Click;
+            // 
+            // innyToolStripMenuItem
+            // 
+            innyToolStripMenuItem.Name = "innyToolStripMenuItem";
+            innyToolStripMenuItem.Size = new Size(126, 22);
+            innyToolStripMenuItem.Text = "Inny";
+            innyToolStripMenuItem.Click += innyToolStripMenuItem_Click;
+            // 
+            // rozmiarCzcionkiToolStripMenuItem
+            // 
+            rozmiarCzcionkiToolStripMenuItem.Name = "rozmiarCzcionkiToolStripMenuItem";
+            rozmiarCzcionkiToolStripMenuItem.Size = new Size(163, 22);
+            rozmiarCzcionkiToolStripMenuItem.Text = "Rozmiar czcionki";
+            rozmiarCzcionkiToolStripMenuItem.Click += rozmiarCzcionkiToolStripMenuItem_Click;
             // 
             // widokToolStripMenuItem
             // 
@@ -250,23 +312,30 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { FontStrip, IloscZnakow });
-            statusStrip1.Location = new Point(0, 506);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { FontStrip, IloscZnakow, ZoomStrip });
+            statusStrip1.Location = new Point(0, 504);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(985, 22);
+            statusStrip1.Size = new Size(985, 24);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
             // FontStrip
             // 
             FontStrip.Name = "FontStrip";
-            FontStrip.Size = new Size(0, 17);
+            FontStrip.Size = new Size(0, 19);
             // 
             // IloscZnakow
             // 
             IloscZnakow.BorderSides = ToolStripStatusLabelBorderSides.Left;
             IloscZnakow.Name = "IloscZnakow";
-            IloscZnakow.Size = new Size(4, 17);
+            IloscZnakow.Size = new Size(4, 19);
+            // 
+            // ZoomStrip
+            // 
+            ZoomStrip.BorderSides = ToolStripStatusLabelBorderSides.Left;
+            ZoomStrip.Name = "ZoomStrip";
+            ZoomStrip.Size = new Size(122, 19);
+            ZoomStrip.Text = "toolStripStatusLabel1";
             // 
             // MainForm
             // 
@@ -319,5 +388,15 @@
         private ToolStripMenuItem pokażPasekDolnyToolStripMenuItem;
         private ToolStripMenuItem stworzyłMichałKopacz3CToolStripMenuItem;
         private ToolStripStatusLabel IloscZnakow;
+        private ToolStripMenuItem kolorCzcionkiToolStripMenuItem;
+        private ToolStripMenuItem czarnyToolStripMenuItem;
+        private ToolStripMenuItem czerwonyToolStripMenuItem;
+        private ToolStripMenuItem zielonyToolStripMenuItem;
+        private ToolStripMenuItem niebieskiToolStripMenuItem;
+        private ToolStripMenuItem innyToolStripMenuItem;
+        private ColorDialog colorDialog1;
+        private ToolStripMenuItem rozmiarCzcionkiToolStripMenuItem;
+        private FontDialog fontDialog1;
+        private ToolStripStatusLabel ZoomStrip;
     }
 }

@@ -5,14 +5,19 @@ namespace NotatnikApp
         public MainForm()
         {
             InitializeComponent();
-            FontStatus(PoleNotatnik.Font.Size.ToString());
+            FontStatus();
             IloscZnakow.Text = "0 znaków";
+            PoleNotatnik.ForeColor = Color.Black;
+            ZoomStatus(0);
         }
         public string openedFile = "";
+        public int sizeChecker = 2;
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             IloscZnakow.Text = PoleNotatnik.Text.Length.ToString() + " znaków";
+
+            FontStatus();
         }
 
         private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,10 +48,18 @@ namespace NotatnikApp
         {
             string fileContent = PoleNotatnik.Text;
             //testWindow(fileContent);
-            
-            fileName = Path.ChangeExtension(fileName, "txt");
-            //string filePath = Path.Combine(savePath, fileName);
-            File.WriteAllText(savePath, fileContent);
+            if (openedFile != "")
+            {
+                fileName = Path.ChangeExtension(fileName, "txt");
+                //string filePath = Path.Combine(savePath, fileName);
+                File.WriteAllText(openedFile, fileContent);
+            }
+            else
+            {
+                fileName = Path.ChangeExtension(fileName, "txt");
+                //string filePath = Path.Combine(savePath, fileName);
+                File.WriteAllText(savePath, fileContent);
+            }
         }
 
         void checkIfFileExist(string filePath, string fileName)
@@ -124,12 +137,15 @@ namespace NotatnikApp
             }
         }
 
+
         private void powiêkszToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            PoleNotatnik.Font = new System.Drawing.Font(PoleNotatnik.Font.FontFamily, PoleNotatnik.Font.Size + 2);
+            PoleNotatnik.Font = new System.Drawing.Font(PoleNotatnik.Font.FontFamily, PoleNotatnik.Font.Size * 2);
+            sizeChecker += 1;
             this.zmniejszToolStripMenuItem1.Enabled = true;
-            FontStatus(PoleNotatnik.Font.Size.ToString());
-            if (PoleNotatnik.Font.Size == 13)
+            //FontStatus();
+            ZoomStatus(sizeChecker);
+            if (sizeChecker == 4)
             {
                 this.powiêkszToolStripMenuItem2.Enabled = false;
             }
@@ -137,18 +153,26 @@ namespace NotatnikApp
 
         private void zmniejszToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            PoleNotatnik.Font = new System.Drawing.Font(PoleNotatnik.Font.FontFamily, PoleNotatnik.Font.Size - 2);
+            PoleNotatnik.Font = new System.Drawing.Font(PoleNotatnik.Font.FontFamily, PoleNotatnik.Font.Size / 2);
+            sizeChecker -= 1;
             this.powiêkszToolStripMenuItem2.Enabled = true;
-            FontStatus(PoleNotatnik.Font.Size.ToString());
-            if (PoleNotatnik.Font.Size == 5)
+            //FontStatus();
+            ZoomStatus(sizeChecker);
+            if (sizeChecker == 0)
             {
                 this.zmniejszToolStripMenuItem1.Enabled = false;
             }
         }
 
-        void FontStatus(string fontSize)
+        void FontStatus()
         {
-            FontStrip.Text = "Czcionka: " + fontSize;
+            double fontSizeNum = Math.Round(PoleNotatnik.Font.Size);
+            FontStrip.Text = "Czcionka: " + fontSizeNum;
+        }
+
+        void ZoomStatus(int zoomNum)
+        {
+            ZoomStrip.Text = "Zoom: x" + (zoomNum - 2).ToString();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -164,13 +188,61 @@ namespace NotatnikApp
                 poka¿PasekDolnyToolStripMenuItem.Checked = false;
                 return;
             }
-            if(poka¿PasekDolnyToolStripMenuItem.Checked == false)
+            if (poka¿PasekDolnyToolStripMenuItem.Checked == false)
             {
                 statusStrip1.Show();
                 poka¿PasekDolnyToolStripMenuItem.Checked = true;
                 return;
             }
 
+        }
+
+        private void innyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //colorDialog1.ShowDialog();
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color selectedColor = colorDialog1.Color;
+                PoleNotatnik.ForeColor = selectedColor;
+
+            }
+        }
+
+        private void czarnyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PoleNotatnik.ForeColor = Color.Black;
+        }
+
+        private void czerwonyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PoleNotatnik.ForeColor = Color.Red;
+        }
+
+        private void zielonyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PoleNotatnik.ForeColor = Color.Green;
+        }
+
+        private void niebieskiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PoleNotatnik.ForeColor = Color.Blue;
+        }
+
+        private void rozmiarCzcionkiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Font selectedFont = fontDialog1.Font;
+                PoleNotatnik.Font = selectedFont;
+                FontStatus();
+            }
+        }
+
+        private void cofnijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PoleNotatnik.Undo();
         }
     }
 }

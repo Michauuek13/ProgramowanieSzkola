@@ -24,8 +24,8 @@ namespace NotatnikApp
         private void saButton_Click(object sender, EventArgs e)
         {
             if (empty == false)
-            { 
-            DialogResult = DialogResult.OK;
+            {
+                DialogResult = DialogResult.OK;
             }
             else
             {
@@ -43,9 +43,9 @@ namespace NotatnikApp
             dialog.Description = "Zapisz jako";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                
+
                 string saveFolder1 = dialog.SelectedPath;
-                if(saveFolder != null)
+                if (saveFolder != null)
                 {
                     savePathTextBox.Text = saveFolder1;
                     empty = false;
